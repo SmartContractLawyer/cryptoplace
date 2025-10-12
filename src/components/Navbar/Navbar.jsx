@@ -3,6 +3,7 @@ import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import arrow from "../../assets/arrow.png";
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
@@ -26,10 +27,13 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <img src={logo} alt="" className="logo" />
+      <Link to={"/"}>
+        <img src={logo} alt="" className="logo" />
+      </Link>
       <ul>
-        <li>Inicio</li>
-        <li>Blog</li>
+        <Link to={"/"}>
+          <li>Inicio</li>
+        </Link>
       </ul>
       <div className="nav-right">
         <select onChange={currencyHandler}>
