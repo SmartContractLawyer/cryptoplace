@@ -23,15 +23,29 @@ const Home = () => {
         <div className="table-layout">
           <p>#</p>
           <p>Monedas</p>
+          <p>Precio</p>
           <p style={{ textAlign: "center" }}>Cambio 24hrs</p>
           <p className="market-cap">Capitalización</p>
         </div>
         {displayCoin.slice(0, 10).map((item, index) => (
           <div className="table-layout" key={index}>
             <p>{item.market_cap_rank}</p>
-            <div>
+            <div style={{ display: "flex", gap: "10px" }}>
               <img alt="" height="30" src={item.image} width="30" />
+              <p>{item.name + " - " + item.symbol}</p>
             </div>
+            <p>
+              {currency.symbol} {item.current_price.toLocaleString()}
+            </p>
+            <p
+              className={item.price_change_percentage_24h > 0 ? "green" : "red"}
+              style={{ textAlign: "center" }}
+            >
+              {Math.floor(item.price_change_percentage_24h * 100) / 100}
+            </p>
+            <p className="market-cap">
+              {currency.symbol} {item.market_cap.toLocaleString()}
+            </p>
           </div>
         ))}
       </div>

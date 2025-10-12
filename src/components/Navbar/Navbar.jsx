@@ -13,8 +13,8 @@ const Navbar = () => {
         setCurrency({ name: "usd", symbol: "$" });
         break;
       }
-      case "pyg": {
-        setCurrency({ name: "pyg", symbol: "₲" });
+      case "eur": {
+        setCurrency({ name: "eur", symbol: "€" });
         break;
       }
       default: {
@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="nav-right">
         <select onChange={currencyHandler}>
           <option value="usd">USD</option>
-          <option value="pyg">PYG</option>
+          <option value="eur">EUR</option>
         </select>
         <button>
           Registrate <img src={arrow} alt="" />
